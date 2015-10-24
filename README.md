@@ -1,9 +1,8 @@
-# crypto-balance
+# Quantum
 
 Query various crypto tokens for their address balances.
 
 Warning: this is a very early version--use at your own risk. Pull requests are very much welcome as well as support for other tokens, blockchains, and services.
-
 
 ## Supported Tokens
 
@@ -13,7 +12,6 @@ Warning: this is a very early version--use at your own risk. Pull requests are v
 - All tokens created on Counterparty
 - All tokens created on Dogeparty
 - Mastercoin
-- Ethereum (pre-sale)
 - Open Assets
 
 .. and maybe more by now, in case we forget to update this section again, check the code [src/services](https://github.com/larskluge/crypto-balance/tree/master/src/services).
