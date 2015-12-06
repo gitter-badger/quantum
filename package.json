@@ -24,7 +24,8 @@
     "balance": "bin/balance.js"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test --compilers=coffee:coffee-script/register --recursive"
+    "test": "./node_modules/mocha/bin/mocha test --compilers=coffee:coffee-script/register --recursive",
+    "balance": "bin/balance.js"
   },
   "repository": {
     "type": "git",

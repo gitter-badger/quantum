@@ -1,12 +1,11 @@
 Promise = require("bluebird")
 services = require('./services')
 normalizeAssetName = require('./asset-names').normalize
-
+regexp = require('./regexp-list')
 
 balance = (addr, callback) ->
-
   Promise
-    .settle(fn(addr) for s, fn of services)
+    .settle((fn(addr) if regexp[s].test(addr)) for s, fn of services)
     .timeout(20000)
     .cancellable()
     .map (pi) -> pi.isFulfilled() and pi.value()
