@@ -3,7 +3,6 @@ req = Promise.promisify(require("request"))
 _ = require("lodash")
 InvalidResponseError = require("../errors").InvalidResponseError
 
-
 oa = (addr) ->
   url = "https://api.coinprism.com/v1/addresses/#{addr}"
 
@@ -49,4 +48,3 @@ oa = (addr) ->
 
 
 module.exports = oa
-

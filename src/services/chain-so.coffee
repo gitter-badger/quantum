@@ -2,10 +2,10 @@ Promise = require("bluebird")
 req = Promise.promisifyAll(require("request"))
 _ = require("lodash")
 
-
 chain_so = (addr) ->
   Promise
-    .all ['BTC', 'LTC', 'DOGE', 'BTCTEST', 'LTCTEST', 'DOGETEST']
+    # .all ['BTC', 'LTC', 'DOGE', 'BTCTEST', 'LTCTEST', 'DOGETEST']
+    .all ['DOGE']
     .map (network) ->
       url = "https://chain.so/api/v2/get_address_balance/#{network}/#{addr}"
       req.getAsync(url)
@@ -32,4 +32,3 @@ chain_so = (addr) ->
 
 
 module.exports = chain_so
-

@@ -3,7 +3,6 @@ req = Promise.promisifyAll(require("request"))
 _ = require("lodash")
 InvalidResponseError = require("../errors").InvalidResponseError
 
-
 msc = (addr) ->
   url = "https://www.omniwallet.org/v1/address/addr/"
   opts = url: url, json: true, form: addr: addr

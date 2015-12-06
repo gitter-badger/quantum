@@ -38,4 +38,3 @@ party = (addr, services) ->
 
 
 exports.party = party
-
