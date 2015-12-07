@@ -3,7 +3,7 @@ module.exports =
   counterparty: new RegExp('\b\B')
   dogeparty: new RegExp('\b\B')
   mastercoin: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
-  ethereum: new RegExp('\b\B')
+  ethereum: new RegExp('^(NXT)-[a-km-zA-HJ-NP-Z0-9]{1,4}-[a-km-zA-HJ-NP-Z0-9]{1,4}-[a-km-zA-HJ-NP-Z0-9]{1,4}-[a-km-zA-HJ-NP-Z0-9]{1,5}$')
   ripple: new RegExp('\b\B')
   nxt: new RegExp('\b\B')
   nxtassets: new RegExp('\b\B')
