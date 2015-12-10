@@ -4,18 +4,20 @@ _ = require("lodash")
 InvalidResponseError = require("../errors").InvalidResponseError
 
 nem = (addr) ->
-  url = "http://127.0.0.1:7890/account/get/forwarded?address=#{addr}"
+  url = "http://127.0.0.1:7890/account/get/forwarded?address=#{addr.replace(/-/g,'')}"
 
   req(url, json: true)
-    .timeout(10000)
+    .timeout(1000)
     .cancellable()
     .spread (resp, json) ->
+      console.log json
       if resp.statusCode in [200..299]
         status: "success"
+        protocol: "NEM"
         service: url
         address: addr
         quantity: json.account.balance
-        asset: "NEM"
+        asset: "XEM"
       else
         if _.isObject(json) and json.message == "error"
           []
