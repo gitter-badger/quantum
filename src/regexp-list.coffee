@@ -1,9 +1,9 @@
 module.exports =
   chainso: new RegExp('\b\B')
-  counterparty: new RegExp('\b\B')
+  counterparty: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
   dogeparty: new RegExp('\b\B')
   mastercoin: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
-  ethereum: new RegExp('^(NXT)-[a-km-zA-HJ-NP-Z0-9]{1,4}-[a-km-zA-HJ-NP-Z0-9]{1,4}-[a-km-zA-HJ-NP-Z0-9]{1,4}-[a-km-zA-HJ-NP-Z0-9]{1,5}$')
+  ethereum: new RegExp('^(NXT)-([a-km-zA-HJ-NP-Z0-9]{4,5})+$')
   ripple: new RegExp('\b\B')
   nxt: new RegExp('\b\B')
   nxtassets: new RegExp('\b\B')
@@ -11,4 +11,4 @@ module.exports =
   coloredcoins: new RegExp('\b\B')
   nem: new RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$')
   cryptoid: new RegExp('\b\B')
-  openassets: new RegExp('\b\B')
+  openassets: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
