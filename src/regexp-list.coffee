@@ -9,6 +9,6 @@ module.exports =
   nxtassets: new RegExp('\b\B')
   nxtcurrencies: new RegExp('\b\B')
   coloredcoins: new RegExp('\b\B')
-  nem: new RegExp('\b\B')
+  nem: new RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$')
   cryptoid: new RegExp('\b\B')
   openassets: new RegExp('\b\B')
