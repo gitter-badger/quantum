@@ -5,7 +5,7 @@ module.exports =
   # mastercoin: require './mastercoin'
   # ethereum: require './ethereum'
   # ripple: require './ripple'
-  # nxt: require './nxt'
+  nxt: require './nxt'
   # nxtassets: require './nxt-assets'
   # nxtcurrencies: require './nxt-currencies'
   # coloredcoins: require './colored-coins'
