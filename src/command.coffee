@@ -12,8 +12,10 @@ module.exports.run = ->
   balance addr
     .then (items) ->
       for item in items
-        if item.status == 'success'
-          item.quantity = formats[item.protocol](item.quantity) 
+        if item.status == 'success' && item.quantity != undefined
+          # console.log 'place: command.coffee'
+          # console.log item
+          item.quantity = formats[item.asset](item.quantity)
           console.log "#{item.quantity} #{item.asset}"
         else
           console.error _.merge(item, raw: "[object]")
