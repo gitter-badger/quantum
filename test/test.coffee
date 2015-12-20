@@ -98,9 +98,14 @@ describe "Balance", ->
 
   it "has a XEM balance", (done) ->
     balance("NALICE2A73DLYTP4365GNFCURAUP3XVBFO7YNYOW").then (result) ->
-      console.log result
       nem = _.find(result, (item) -> item.asset == "XEM")
       expect(nem).to.exist
       expect(nem.quantity).to.be.eq '15750000.000000'
       done()
 
+ it "has a NQT balance", (done) ->
+    balance("NXT-8MVA-XCVR-3JC9-2C7C3").then (result) ->
+      nem = _.find(result, (item) -> item.asset == "NQT")
+      expect(nem).to.exist
+      expect(nem.quantity).to.be.eq '2767787687813'
+      done()
