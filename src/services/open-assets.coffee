@@ -7,7 +7,7 @@ oa = (addr) ->
   url = "https://api.coinprism.com/v1/addresses/#{addr}"
 
   req(url, json: true)
-    .timeout(10000)
+    .timeout(2000)
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299] and json.address == addr and _.isArray(json.assets)
@@ -26,9 +26,9 @@ oa = (addr) ->
           if resp.statusCode in [200..299]
             if _.isNull json
               # fail gracefully when asset definition is unknown
-              _.merge asset, symbol: "OA/#{asset.id}", divisibility: 0
+              _.merge asset, symbol: "#{asset.id}", divisibility: 0
             else if json.asset_id == asset.id
-              _.merge asset, symbol: "OA/#{json.name_short.toUpperCase()}", divisibility: json.divisibility
+              _.merge asset, symbol: "#{json.name_short.toUpperCase()}", divisibility: json.divisibility
           else
             throw new InvalidResponseError service: url, response: resp
     .map (asset) ->
@@ -38,7 +38,7 @@ oa = (addr) ->
       status: "success"
       service: url
       address: addr
-      quantity: quantity.toFixed(8)
+      quantity: quantity.toFixed(6)
       asset: asset.symbol
 
     .catch Promise.TimeoutError, (e) ->
