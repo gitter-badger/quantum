@@ -16,7 +16,7 @@ module.exports.run = ->
         if item.status == 'success' && item.quantity != undefined
           # console.log 'place: command.coffee'
           # console.log item
-          # item.quantity = formats[item.asset](item.quantity)
+          # ditem.quantity = formats[item.asset](item.quantity)
           # console.log "#{item.quantity} #{item.asset}"
           console.log "#{numeral(item.quantity).format("0,0.00000000")} #{item.asset}"
         else

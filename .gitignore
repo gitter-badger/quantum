@@ -15,4 +15,4 @@ build/Release
 /lib/*
 
 # Replay data
-test/fixtures/replay/*
+/test/fixtures/replay/*
