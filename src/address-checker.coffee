@@ -24,8 +24,12 @@ module.exports =
   nxt: (addr) ->
     RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
 
-  # nxtassets: new RegExp('\b\B')
-  # nxtcurrencies: new RegExp('\b\B')
+  # Example NXT-8N9W-TN4F-YA2S-H5B7R
+  nxtassets: (addr) ->
+    RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
+
+  nxtcurrencies: (addr) ->
+    RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
   # coloredcoins: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
 
   # Currently two networks are defined: the test network whose account

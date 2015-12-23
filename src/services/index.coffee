@@ -6,7 +6,7 @@ module.exports =
   ethereum: require './ethereum'
   ripple: require './ripple'
   nxt: require './nxt'
-  # nxtassets: require './nxt-assets'
+  nxtassets: require './nxt-assets'
   # nxtcurrencies: require './nxt-currencies'
   # coloredcoins: require './colored-coins'
   nem: require './nem'
