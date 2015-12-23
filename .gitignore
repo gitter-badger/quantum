@@ -13,3 +13,6 @@ build/Release
 
 # Coffee compiled
 /lib/*
+
+# Replay data
+/test/fixtures/replay/*

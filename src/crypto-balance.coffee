@@ -1,12 +1,12 @@
 Promise = require("bluebird")
 services = require('./services')
 normalizeAssetName = require('./asset-names').normalize
-regexp = require('./regexp-list')
+checker = require('./address-checker')
 
 balance = (addr, callback) ->
   Promise
-    .settle((fn(addr) if regexp[s].test(addr)) for s, fn of services)
-    .timeout(20000)
+    .settle((fn(addr) if checker[s.toString()](addr)) for s, fn of services)
+    .timeout(10000)
     .cancellable()
     .map (pi) -> pi.isFulfilled() and pi.value()
     .filter (item) -> !!item
@@ -16,6 +16,7 @@ balance = (addr, callback) ->
     .filter (asset) ->
       !asset.address or asset.address == addr
     .map (item) ->
+      console.log item
       if item.address
         item.asset = normalizeAssetName(item.asset)
       item

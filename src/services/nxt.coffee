@@ -4,10 +4,10 @@ _ = require("lodash")
 InvalidResponseError = require("../errors").InvalidResponseError
 
 nxt = (addr) ->
-  url = "http://localhost:7876/nxt?requestType=getBalance&account=#{addr}"
+  url = "http://jnxt.org:7876/nxt?requestType=getBalance&account=#{addr}"
 
   req(url, json: true)
-    .timeout(10000)
+    .timeout(1000)
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299]

@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "coffee-script": "^1.7.1",
-    "chai": "^1.9.1",
-    "replay": "^1.10.3",
-    "mocha": "^1.21.4"
+    "chai": "^2.0.0",
+    "replay": "^2.0.3",
+    "mocha": "^2.3.4"
   }
 }

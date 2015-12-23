@@ -1,7 +1,6 @@
-numeral = require("numeral")
 _ = require("lodash")
 balance = require("./crypto-balance")
-
+numeral = require('numeral')
 
 module.exports.run = ->
   addr = process.argv[2]
@@ -13,7 +12,7 @@ module.exports.run = ->
   balance addr
     .then (items) ->
       for item in items
-        if item.status == 'success'
+        if item.status == 'success' && item.quantity != undefined
           console.log "#{numeral(item.quantity).format("0,0.00000000")} #{item.asset}"
         else
           console.error _.merge(item, raw: "[object]")
