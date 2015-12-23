@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "bluebird": "^2.3.0",
-    "bs58": "^3.0.0",
     "bs58check": "^1.0.3",
     "lodash": "^2.4.1",
     "numeral": "^1.5.3",

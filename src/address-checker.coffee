@@ -9,12 +9,12 @@ module.exports =
  # Ethereum account address starts with 0x
  # Example 0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae
   ethereum: (addr) ->
-    new RegExp('^(0x)?[0-9a-f]{40}$').test(addr)
+    RegExp('^(0x)?[0-9a-f]{40}$').test(addr)
 
   # Short name for sending funds to an account, rXXXX
   # Example r9kiSEUEw6iSCNksDVKf9k3AyxjW3r1qPf
   ripple: (addr) ->
-    new RegExp('^r[1-9A-HJ-NP-Za-km-z]{25,33}$').test(addr)
+    RegExp('^r[1-9A-HJ-NP-Za-km-z]{25,33}$').test(addr)
 
   # Addresses are always prefixed with "NXT-",
   # and hyphens are used to separate the address
@@ -22,7 +22,7 @@ module.exports =
   # The addresses are NOT case-sensitive.
   # Example NXT-8MVA-XCVR-3JC9-2C7C3
   nxt: (addr) ->
-    new RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
+    RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
 
   # nxtassets: new RegExp('\b\B')
   # nxtcurrencies: new RegExp('\b\B')
@@ -34,12 +34,15 @@ module.exports =
   # length of 40 characters and are base-32 encoded.
   # Example NALICE2A73DLYTP4365GNFCURAUP3XVBFO7YNYOW
   nem: (addr) ->
-    new RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$').test(addr)
+    RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$').test(addr)
 
   # cryptoid: new RegExp('\b\B')
 
   # The namespace used for Open Assets is 19 (0x13 in hexadecimal)
   # Example akB4NBW9UuCmHuepksob6yfZs6naHtRCPNy
   openassets: (addr) ->
-    decoded = bs58check.decode(addr)
+    try decoded = bs58check.decode(addr)
+    catch error
+      return false
     decoded[0] == 19
+

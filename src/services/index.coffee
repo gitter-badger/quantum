@@ -11,4 +11,4 @@ module.exports =
   # coloredcoins: require './colored-coins'
   nem: require './nem'
   # cryptoid: require './cryptoid'
-  openassets: require './open-assets'
+  openassets: require './openassets'
