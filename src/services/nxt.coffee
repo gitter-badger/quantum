@@ -10,6 +10,7 @@ nxt = (addr) ->
     .timeout(1000)
     .cancellable()
     .spread (resp, json) ->
+      console.log json
       if resp.statusCode in [200..299]
         status: "success"
         service: url
