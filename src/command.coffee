@@ -1,6 +1,5 @@
 _ = require("lodash")
 balance = require("./crypto-balance")
-# formats = require("./format-list")
 numeral = require('numeral')
 
 module.exports.run = ->
@@ -14,10 +13,6 @@ module.exports.run = ->
     .then (items) ->
       for item in items
         if item.status == 'success' && item.quantity != undefined
-          # console.log 'place: command.coffee'
-          # console.log item
-          # ditem.quantity = formats[item.asset](item.quantity)
-          # console.log "#{item.quantity} #{item.asset}"
           console.log "#{numeral(item.quantity).format("0,0.00000000")} #{item.asset}"
         else
           console.error _.merge(item, raw: "[object]")

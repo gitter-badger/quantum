@@ -1,3 +1,5 @@
+bs58check = require('bs58check')
+
 module.exports =
   # chainso: new RegExp('\b\B')
   # counterparty: new RegExp('\b\B')
@@ -6,18 +8,21 @@ module.exports =
 
  # Ethereum account address starts with 0x
  # Example 0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae
-  ethereum: new RegExp('^(0x)?[0-9a-f]{40}$')
+  ethereum: (addr) ->
+    new RegExp('^(0x)?[0-9a-f]{40}$').test(addr)
 
   # Short name for sending funds to an account, rXXXX
   # Example r9kiSEUEw6iSCNksDVKf9k3AyxjW3r1qPf
-  ripple: new RegExp('^r[1-9A-HJ-NP-Za-km-z]{25,33}$')
+  ripple: (addr) ->
+    new RegExp('^r[1-9A-HJ-NP-Za-km-z]{25,33}$').test(addr)
 
   # Addresses are always prefixed with "NXT-",
   # and hyphens are used to separate the address
   # into groups of 4, 4, 4, and then 5 characters.
   # The addresses are NOT case-sensitive.
   # Example NXT-8MVA-XCVR-3JC9-2C7C3
-  nxt: new RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$')
+  nxt: (addr) ->
+    new RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
 
   # nxtassets: new RegExp('\b\B')
   # nxtcurrencies: new RegExp('\b\B')
@@ -28,7 +33,13 @@ module.exports =
   # addresses always start with a capital N. Addresses have always a
   # length of 40 characters and are base-32 encoded.
   # Example NALICE2A73DLYTP4365GNFCURAUP3XVBFO7YNYOW
-  nem: new RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$')
+  nem: (addr) ->
+    new RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$').test(addr)
 
   # cryptoid: new RegExp('\b\B')
-  # openassets: new RegExp('\b\B')
+
+  # The namespace used for Open Assets is 19 (0x13 in hexadecimal)
+  # Example akB4NBW9UuCmHuepksob6yfZs6naHtRCPNy
+  openassets: (addr) ->
+    decoded = bs58check.decode(addr)
+    decoded[0] == 19
