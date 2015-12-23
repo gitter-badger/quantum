@@ -96,16 +96,32 @@ describe "Balance", ->
   #     expect(error.message).to.be.eq "Server error. Code: -32000. Server is not caught up. Please try again later."
   #     done()
 
+  it "has a ETH balance", (done) ->
+    balance("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae").then (result) ->
+      console.log result
+      ethereum = _.find(result, (item) -> item.asset == "ETH")
+      expect(ethereum).to.exist
+      expect(ethereum.quantity).to.be.eq '2275971431379999998200000'
+      done()
+
+  it "has a XRP balance", (done) ->
+    balance("rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh").then (result) ->
+      console.log result
+      ripple = _.find(result, (item) -> item.asset == "XRP")
+      expect(ripple).to.exist
+      expect(ripple.quantity).to.be.eq '72.81445'
+      done()
+
   it "has a XEM balance", (done) ->
     balance("NALICE2A73DLYTP4365GNFCURAUP3XVBFO7YNYOW").then (result) ->
       nem = _.find(result, (item) -> item.asset == "XEM")
       expect(nem).to.exist
-      expect(nem.quantity).to.be.eq '15750000.000000'
+      expect(nem.quantity).to.be.eq 15750000000000
       done()
 
  it "has a NQT balance", (done) ->
     balance("NXT-8MVA-XCVR-3JC9-2C7C3").then (result) ->
-      nem = _.find(result, (item) -> item.asset == "NQT")
-      expect(nem).to.exist
-      expect(nem.quantity).to.be.eq '2767787687813'
+      nxt = _.find(result, (item) -> item.asset == "NQT")
+      expect(nxt).to.exist
+      expect(nxt.quantity).to.be.eq '2922028027328'
       done()
