@@ -9,3 +9,6 @@ module.exports =
 
   NQT: (number) ->
     number.toString()
+
+  XRP: (number) ->
+    number.toString()
