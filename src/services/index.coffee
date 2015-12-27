@@ -10,5 +10,5 @@ module.exports =
   # nxtcurrencies: require './nxt-currencies'
   # coloredcoins: require './colored-coins'
   nem: require './nem'
-  # cryptoid: require './cryptoid'
+  cryptoid: require './cryptoid'
   openassets: require './openassets'

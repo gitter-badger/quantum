@@ -45,7 +45,15 @@ module.exports =
   # Example NALICE2A73DLYTP4365GNFCURAUP3XVBFO7YNYOW
   nem: (addr) ->
     RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$').test(addr)
-  # cryptoid: new RegExp('\b\B')
+
+  # Using cryptoid for Dash (starts with X) and Peercoin(starts with P)
+  # Blackcoin (starts withc B)
+  # address length is 34
+  # Example for Peercoin is PGVtF7DJ4KtndgdYZ472skrZQx3MDHNymt
+  # Example for Dash is XfgNCeTJxBVHb9CCpn52QyfjfpBmPQUYdA
+  # Example for Blackcoin is B95qcCHpma5XZu4n6hP9pP5APiasCR16Ts
+  cryptoid: (addr) ->
+    RegExp('^[XPB][a-km-zA-HJ-NP-Z1-9]{33}$').test(addr)
 
   # The namespace used for Open Assets is 19 (0x13 in hexadecimal)
   # Example akB4NBW9UuCmHuepksob6yfZs6naHtRCPNy
