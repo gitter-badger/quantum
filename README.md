@@ -7,13 +7,13 @@ Maintainer @ValeryLitvin
 On repo project folder type:
 ```
 ~ » npm run balance 0xfc30a6c6d1d61f0027556ed25a670345ab39d0cb
-  
+
   { status: 'success',
   service: 'http://api.etherscan.io',
   address: '0xfc30a6c6d1d61f0027556ed25a670345ab39d0cb',
   quantity: '790000000000000000',
   system: 'Ethereum' }
-  
+
   0.79000000000 ethers
 ```
 
@@ -52,6 +52,7 @@ Warning: some tests may not pass because balances was changed
 - Fix tests (add addresses with static balances)
 - Refactoring and optimization
 - Rebuild regular expressions for addresses
+- Add build (with TravisCI), npm package (with badge.fury.io) and code climate (with codeclimate.org)
 
 ## License
 
