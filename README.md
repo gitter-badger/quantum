@@ -1,85 +1,51 @@
 # Quantum
 
+Current version is 0.3
+
 Query various crypto tokens for their address balances.
 
-Warning: this is a very early version--use at your own risk. Pull requests are very much welcome as well as support for other tokens, blockchains, and services.
+Warning: this is a very early version -use at your own risk.
 
-## Supported Tokens
+## Supported
 
-- Bitcoin
-- Litecoin
-- Dogecoin
-- All tokens created on Counterparty
-- All tokens created on Dogeparty
-- Mastercoin
+- Bitcoin, Litecoin, Dogecoin (with ChainSo)
+- Ethereum
+- Ripple
+- NXT and NXT assets
+- NEM (with local node)
+- Dash, PeerCoin, Blackcoin (with CryptoID)
 - Open Assets
-
-.. and maybe more by now, in case we forget to update this section again, check the code [src/services](https://github.com/larskluge/crypto-balance/tree/master/src/services).
-
 
 ## Installation
 
 ```
-~ » npm install crypto-balance
+~ » git clone https://github.com/cyberFund/quantum
+~ » make init
+~ » make build
 ```
-
 
 ## How to Use
-
-
-### Command Line
-
+On repo project folder type:
 ```
-~ » npm install -g crypto-balance # for global installation of _balance_
-~ » balance DDogepartyxxxxxxxxxxxxxxxxxxw1dfzr                                                                      ~
-1,009,968,741.03499746 DOGE
-~ » balance 1LARSvRshS9Nm3D3aWLELQjNYtaBrWGzg2                                                                      ~
-0.00010860 BTC
-42.00000000 XCP/LARS
-```
-
-
-### Node.js
-
-```
-var balance = require('crypto-balance');
-balance("DCt8sxHX634ghqdDhWFtCPQUyZ3TEfLBCo", function(error, assets) {
-  console.log(assets);
-});
-
-// [ { address: 'DCt8sxHX634ghqdDhWFtCPQUyZ3TEfLBCo',
-//    quantity: 100000000,
-//    asset: 'XDP/DOGEPARTY' },
-//  { address: 'DCt8sxHX634ghqdDhWFtCPQUyZ3TEfLBCo',
-//    quantity: 500000000000,
-//    asset: 'XDP/DOLLARS' },
-//  ...
-// ]
-```
-
-
-### Promise
-
-```
-var balance = require("crypto-balance");
-balance("DDogepartyxxxxxxxxxxxxxxxxxxw1dfzr").then(function(balances) {
-  console.log(balances);
-});
-
-// [ { address: 'DDogepartyxxxxxxxxxxxxxxxxxxw1dfzr',
-//  quantity: '1399253366.95050883',
-//  asset: 'DOGE' } ]
+~ » npm run balance <address>
 ```
 
 
 ## Tests
-
+Warning: some tests may not pass because balances was changed
 ```
-npm test
+~ » npm test
 ```
-
+## Next Milestone
+- split to two versions: CLI-based and NPM-package
+- Add BitShares
+- Add Stellar
+- Add CounterParty
+- Add other altcoins from CryptoID
+- Fix tests (add addresses with static balances)
+- Refactoring and optimization
+- Rebuild regular expressions for addresses
 
 ## License
 
-[MIT](https://github.com/larskluge/crypto-balance/blob/master/LICENSE)
-
+Under MIT License
