@@ -2,6 +2,7 @@ Promise = require("bluebird")
 req = Promise.promisify(require("request"))
 _ = require("lodash")
 InvalidResponseError = require("../errors").InvalidResponseError
+converter = require("./../converter")
 
 ethereum = (addr) ->
   url = "http://api.etherscan.io/api?module=account&action=balance&address=#{addr}&tag=latest "
@@ -14,8 +15,8 @@ ethereum = (addr) ->
         status: "success"
         service: url
         address: addr
-        quantity: json.result
         asset: "ETH"
+        quantity: converter.toCoin(json.result, "ETH")
       else
         if _.isObject(json) and json.message == "error"
           []
