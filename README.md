@@ -12,9 +12,9 @@ On repo project folder type:
   service: 'http://api.etherscan.io',
   address: '0xfc30a6c6d1d61f0027556ed25a670345ab39d0cb',
   quantity: '790000000000000000',
-  asset: 'ETH' }
+  system: 'Ethereum' }
   
-  0.79000000000 ETH
+  0.79000000000 ethers
 ```
 
 Warning: this is a very early version -use at your own risk.
