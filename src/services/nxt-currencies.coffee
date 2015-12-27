@@ -17,12 +17,29 @@ nxt_assets = (addr) ->
           []
         else
           throw new InvalidResponseError service: url, response: resp
+    # .map (currency) ->
+    #   assetUrl = "https://api.coinprism.com/v1/assets/#{currency.id}"
+    #   req(assetUrl, json: true)
+    #     .timeout(10000)
+    #     .cancellable()
+    #     .spread (resp, json) ->
+    #       if resp.statusCode in [200..299]
+    #         if _.isNull json
+    #           # fail gracefully when asset definition is unknown
+    #           _.merge currency, code: "#{currency.currency}", divisibility: 0
+    #         else if json.currency == currency.currency
+    #           _.merge currency, code: "#{json.code}", divisibility: json.decimals
+    #       else
+    #         throw new InvalidResponseError service: url, response: resp
     .map (currency) ->
+      balance = parseInt(currency.units, 10)
+      quantity = balance / (10 ** currency.decimals)
+
       status: "success"
       service: url
       address: addr
-      quantity: currency.units
-      asset: currency.currency
+      quantity: quantity
+      asset: currency.name
 
     .catch Promise.TimeoutError, (e) ->
       [status: 'error', service: url, message: e.message, raw: e]

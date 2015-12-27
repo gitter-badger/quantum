@@ -1,9 +1,13 @@
 bs58check = require('bs58check')
 
 module.exports =
-  # chainso: new RegExp('\b\B')
+  chainso: (addr) ->
+    chainso = RegExp('^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$').test(addr) ||
+      RegExp('^[LlDd][a-km-zA-HJ-NP-Z1-9]{33}$').test(addr)
+    if chainso
+      return true
+    else false
   # counterparty: new RegExp('\b\B')
-  # dogeparty: new RegExp('\b\B')
   # mastercoin: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
 
  # Ethereum account address starts with 0x
@@ -24,8 +28,13 @@ module.exports =
   nxt: (addr) ->
     RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
 
-  # nxtassets: new RegExp('\b\B')
-  # nxtcurrencies: new RegExp('\b\B')
+  # Example NXT-8N9W-TN4F-YA2S-H5B7R
+  nxtassets: (addr) ->
+    RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
+
+  # Example NXT-4VDY-LNVT-LMAY-FMCKA
+  nxtcurrencies: (addr) ->
+    RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
   # coloredcoins: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
 
   # Currently two networks are defined: the test network whose account
@@ -36,7 +45,14 @@ module.exports =
   nem: (addr) ->
     RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$').test(addr)
 
-  # cryptoid: new RegExp('\b\B')
+  # Using cryptoid for Dash (starts with X) and Peercoin(starts with P)
+  # Blackcoin (starts withc B)
+  # address length is 34
+  # Example for Peercoin is PGVtF7DJ4KtndgdYZ472skrZQx3MDHNymt
+  # Example for Dash is XfgNCeTJxBVHb9CCpn52QyfjfpBmPQUYdA
+  # Example for Blackcoin is B95qcCHpma5XZu4n6hP9pP5APiasCR16Ts
+  cryptoid: (addr) ->
+    RegExp('^[XPB][a-km-zA-HJ-NP-Z1-9]{33}$').test(addr)
 
   # The namespace used for Open Assets is 19 (0x13 in hexadecimal)
   # Example akB4NBW9UuCmHuepksob6yfZs6naHtRCPNy

@@ -7,7 +7,7 @@ ripple = (addr) ->
   url = "https://api.ripple.com/v1/accounts/#{addr}/balances?"
 
   req(url, json: true)
-    .timeout(4000)
+    .timeout(2000)
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299] and _.isArray(json.balances)
