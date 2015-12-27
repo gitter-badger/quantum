@@ -45,7 +45,6 @@ Warning: some tests may not pass because balances was changed
 ## Next Milestone
 - Split to two versions: CLI-based and NPM-package
 - Add BitShares
-- Add CounterParty
 - Add Stellar
 - Add other cyber•rated systems from CryptoID
 - Fix tests (add addresses with static balances)
