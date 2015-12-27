@@ -8,7 +8,6 @@ module.exports =
       return true
     else false
   # counterparty: new RegExp('\b\B')
-  # dogeparty: new RegExp('\b\B')
   # mastercoin: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
 
  # Ethereum account address starts with 0x

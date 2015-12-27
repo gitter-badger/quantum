@@ -73,11 +73,25 @@ describe "Balance", ->
   #     expect(error.message).to.be.eq "Server error. Code: -32000. Got call_jsonrpc_api request error: [Errno 111] Connection refused"
   #     done()
 
-  it "has a BTC balance", (done) ->
-    balance("1CizUyLsrDWty3EsQRuCFPFzXtt3hADqL5").then (result) ->
-      open_assets = _.find(result, (item) -> item.asset == "BTC")
+  it "has a DASH balance", (done) ->
+    balance("XfgNCeTJxBVHb9CCpn52QyfjfpBmPQUYdA").then (result) ->
+      open_assets = _.find(result, (item) -> item.asset == "DASH")
       expect(open_assets).to.exist
-      expect(open_assets.quantity).to.be.eq '0.00000000'
+      expect(open_assets.quantity).to.be.eq '374.87958574'
+      done()
+
+  it "has a PPC balance", (done) ->
+    balance("PGVtF7DJ4KtndgdYZ472skrZQx3MDHNymt").then (result) ->
+      open_assets = _.find(result, (item) -> item.asset == "PPC")
+      expect(open_assets).to.exist
+      expect(open_assets.quantity).to.be.eq '0'
+      done()
+
+  it "has a BLK balance", (done) ->
+    balance("B95qcCHpma5XZu4n6hP9pP5APiasCR16Ts").then (result) ->
+      open_assets = _.find(result, (item) -> item.asset == "BLK")
+      expect(open_assets).to.exist
+      expect(open_assets.quantity).to.be.eq '0'
       done()
 
   it "has a LTC balance", (done) ->

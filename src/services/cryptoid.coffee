@@ -14,14 +14,14 @@ cryptoid = (addr) ->
   url = "http://chainz.cryptoid.info/#{currency}/api.dws?q=getbalance&a=#{addr}"
 
   req(url, json: true)
-    .timeout(2000)
+    .timeout(1000)
     .cancellable()
     .spread (resp) ->
       if resp.statusCode in [200..299]
         status: "success"
         service: url
         address: addr
-        quantity: resp.body
+        quantity: resp.body.toString()
         asset: currency.toUpperCase()
       else
         if _.isObject(json) and json.message == "error"

@@ -7,7 +7,7 @@ nxt_assets = (addr) ->
   url = "http://localhost:7876/nxt?requestType=getAccountAssets&account=#{addr}"
 
   req(url, json: true)
-    .timeout(10000)
+    .timeout(2000)
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299] and _.isArray(json.accountAssets)

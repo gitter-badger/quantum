@@ -7,7 +7,7 @@ ethereum = (addr) ->
   url = "http://api.etherscan.io/api?module=account&action=balance&address=#{addr}&tag=latest "
 
   req(url, json: true)
-    .timeout(10000)
+    .timeout(2000)
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299]

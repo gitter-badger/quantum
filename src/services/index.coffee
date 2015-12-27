@@ -1,7 +1,6 @@
 module.exports =
   chainso: require './chain-so'
   # counterparty: require './counterparty'
-  # dogeparty: require './dogeparty'
   # mastercoin: require './mastercoin'
   ethereum: require './ethereum'
   ripple: require './ripple'
