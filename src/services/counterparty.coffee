@@ -1,9 +1,3 @@
-# shared = require("./_shared")
-#
-# counterparty = (addr) -> shared.party(addr, [["XCP", "https://counterwallet.io/_api"], ["XCPTEST", "https://counterwallet.io/_t_api"]])
-#
-# module.exports = counterparty
-
 Promise = require("bluebird")
 req = Promise.promisify(require("request"))
 _ = require("lodash")
@@ -13,7 +7,7 @@ counterparty = (addr) ->
   url = "http://xcp.blockscan.com/api2?module=address&action=balance&btc_address=#{addr}"
 
   req(url, json: true)
-    .timeout(10000)
+    .timeout(3000)
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299] and _.isArray(json.data)
@@ -24,6 +18,7 @@ counterparty = (addr) ->
         else
           throw new InvalidResponseError service: url, response: resp
     .map (data) ->
+      console.log data
       status: "success"
       service: url
       address: addr

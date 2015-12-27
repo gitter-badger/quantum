@@ -7,7 +7,11 @@ module.exports =
     if chainso
       return true
     else false
-  # counterparty: new RegExp('\b\B')
+
+  # Every Counterparty address is also a Bitcoin address
+  # Example 16WhhnUUCZVvszFxsaCG3d6v77Qin1LErQ
+  counterparty: (addr) ->
+    RegExp('^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$').test(addr)
   # mastercoin: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
 
  # Ethereum account address starts with 0x

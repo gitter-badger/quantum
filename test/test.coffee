@@ -73,6 +73,13 @@ describe "Balance", ->
   #     expect(error.message).to.be.eq "Server error. Code: -32000. Got call_jsonrpc_api request error: [Errno 111] Connection refused"
   #     done()
 
+  it "has a XCP balance", (done) ->
+    balance("16WhhnUUCZVvszFxsaCG3d6v77Qin1LErQ").then (result) ->
+      open_assets = _.find(result, (item) -> item.asset == "XCP")
+      expect(open_assets).to.exist
+      expect(open_assets.quantity).to.be.eq '0'
+      done()
+
   it "has a DASH balance", (done) ->
     balance("XfgNCeTJxBVHb9CCpn52QyfjfpBmPQUYdA").then (result) ->
       open_assets = _.find(result, (item) -> item.asset == "DASH")
