@@ -21,12 +21,12 @@ Warning: this is a very early version -use at your own risk.
 
 - Using `https://chain.so`: Bitcoin, Litecoin, Dogecoin
 - Using `http://etherscan.io`: Ethereum
+- Using `http://blockscan.com`: Counterparty
 - Using `https://chainz.cryptoid.info`: Dash, PeerCoin, Blackcoin
-- Using `http://jnxt.org`: NXT
 - Using `https://api.coinprism.com`: Open Assets Protocol
 - Using `https://api.ripple.com`: Ripple and Ripple based IOUs
-- Using `localnode`: NXT AE
-- Using `localnode`: NEM
+- Using `http://nxt.cyber.fund`: NXT and NXT AE
+- Using `http://nem.cyber.fund`: NEM
 
 ## Installation
 
