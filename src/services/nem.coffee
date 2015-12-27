@@ -4,7 +4,7 @@ _ = require("lodash")
 InvalidResponseError = require("../errors").InvalidResponseError
 
 nem = (addr) ->
-  url = "http://127.0.0.1:7890/account/get?address=#{addr.replace(/-/g,'')}"
+  url = "http://nem.cyber.fund:7890/account/get?address=#{addr.replace(/-/g,'')}"
 
   req(url, json: true)
     .timeout(1000)
