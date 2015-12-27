@@ -11,14 +11,6 @@ describe "Balance", ->
   #     expect(result).to.not.be.empty
   #     done()
 
-  # it "returns the number of burned DOGE for Dogeparty", (done) ->
-  #   balance("DDogepartyxxxxxxxxxxxxxxxxxxw1dfzr").then (result) ->
-  #     expect(result).to.have.length(1)
-  #     expect(result[0].asset).to.be.eq "DOGE"
-  #     expect(result[0].quantity).to.be.eq "1831619391.01419473"
-  #     expect(result[0].address).to.be.eq "DDogepartyxxxxxxxxxxxxxxxxxxw1dfzr"
-  #     done()
-
   # it "has a custom Dogeparty asset", (done) ->
   #   balance("DCt8sxHX634ghqdDhWFtCPQUyZ3TEfLBCo").then (result) ->
   #     expect(result).to.not.be.empty
@@ -48,12 +40,6 @@ describe "Balance", ->
   #     expect(maid.quantity).to.be.eq "47600.00000000"
   #     done()
 
-  # it "has a ETH balance", (done) ->
-  #   balance("1ebacb7844fdc322f805904fbf1962802db1537c").then (result) ->
-  #     eth = _.find(result, (item) -> item.asset == "ETH")
-  #     expect(eth).to.exist
-  #     expect(eth.quantity).to.be.eq "10000.00000000"
-  #     done()
 
   # it "has some Open Assets balances", (done) ->
   #   balance("1LUZHtvrHqaJ3jerhqQkQkcqrm9DzTaJop").then (result) ->
@@ -87,14 +73,26 @@ describe "Balance", ->
   #     expect(error.message).to.be.eq "Server error. Code: -32000. Got call_jsonrpc_api request error: [Errno 111] Connection refused"
   #     done()
 
-  # it "handles counterparty testnet failure", (done) ->
-  #   balance("13Dk4GmTdYfEjouL1x25PE5ztCMoVv6ipv").then (result) ->
-  #     expect(result).to.have.length(2)
-  #     error = _.find(result, (item) -> item.status == "error")
-  #     expect(error).to.exist
-  #     expect(error.service).to.be.eq "https://counterwallet.io/_t_api"
-  #     expect(error.message).to.be.eq "Server error. Code: -32000. Server is not caught up. Please try again later."
-  #     done()
+  it "has a BTC balance", (done) ->
+    balance("1CizUyLsrDWty3EsQRuCFPFzXtt3hADqL5").then (result) ->
+      open_assets = _.find(result, (item) -> item.asset == "BTC")
+      expect(open_assets).to.exist
+      expect(open_assets.quantity).to.be.eq '0.00000000'
+      done()
+
+  it "has a LTC balance", (done) ->
+    balance("LLiwS8XkQ7ra4XAg1TybTWrwnqFvMhiRfE").then (result) ->
+      open_assets = _.find(result, (item) -> item.asset == "LTC")
+      expect(open_assets).to.exist
+      expect(open_assets.quantity).to.be.eq '0.00000000'
+      done()
+
+  it "has a DOGE balance", (done) ->
+    balance("DDogepartyxxxxxxxxxxxxxxxxxxw1dfzr").then (result) ->
+      open_assets = _.find(result, (item) -> item.asset == "DOGE")
+      expect(open_assets).to.exist
+      expect(open_assets.quantity).to.be.eq '1831619391.01419473'
+      done()
 
   it "has a OA balance", (done) ->
     balance("akNgsNMWbjM4svehXchCPkPsLRVAMJU7nrj").then (result) ->
@@ -104,10 +102,10 @@ describe "Balance", ->
       done()
 
   it "has a ETH balance", (done) ->
-    balance("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae").then (result) ->
+    balance("1ebacb7844fdc322f805904fbf1962802db1537c").then (result) ->
       ethereum = _.find(result, (item) -> item.asset == "ETH")
       expect(ethereum).to.exist
-      expect(ethereum.quantity).to.be.eq '2275971431379999998200000'
+      expect(ethereum.quantity).to.be.eq '0.00000000'
       done()
 
   it "has a XRP balance", (done) ->

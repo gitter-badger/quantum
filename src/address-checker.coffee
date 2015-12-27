@@ -1,7 +1,12 @@
 bs58check = require('bs58check')
 
 module.exports =
-  # chainso: new RegExp('\b\B')
+  chainso: (addr) ->
+    chainso = RegExp('^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$').test(addr) ||
+      RegExp('^[LlDd][a-km-zA-HJ-NP-Z1-9]{33}$').test(addr)
+    if chainso
+      return true
+    else false
   # counterparty: new RegExp('\b\B')
   # dogeparty: new RegExp('\b\B')
   # mastercoin: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
@@ -28,6 +33,7 @@ module.exports =
   nxtassets: (addr) ->
     RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
 
+  # Example NXT-4VDY-LNVT-LMAY-FMCKA
   nxtcurrencies: (addr) ->
     RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
   # coloredcoins: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
@@ -39,7 +45,6 @@ module.exports =
   # Example NALICE2A73DLYTP4365GNFCURAUP3XVBFO7YNYOW
   nem: (addr) ->
     RegExp('^[(n)(N)(T)(t)][a-zA-Z0-9]{5}([^(-)][a-zA-Z0-9]{4,6})+$').test(addr)
-
   # cryptoid: new RegExp('\b\B')
 
   # The namespace used for Open Assets is 19 (0x13 in hexadecimal)
