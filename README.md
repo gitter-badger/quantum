@@ -6,12 +6,14 @@ Maintainer @ValeryLitvin
 
 On repo project folder type:
 ```
-~ » npm run balance akED569cicPcK37k7BXPRFohXn3jtxNZFa4
-{ status: 'success',
+~ » npm run balance 0xfc30a6c6d1d61f0027556ed25a670345ab39d0cb
+  
+  { status: 'success',
   service: 'http://api.etherscan.io',
   address: '0xfc30a6c6d1d61f0027556ed25a670345ab39d0cb',
   quantity: '790000000000000000',
   asset: 'ETH' }
+  
   0.79000000000 ETH
 ```
 
