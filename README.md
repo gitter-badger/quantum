@@ -1,8 +1,8 @@
 # Quantum
 
-Current version is 0.3
-
 Query various crypto tokens for their address balances. Script automaticaly recognize a protocol by address and return balance of tokens associated with it. Token names are resolved using Chaingear.
+
+Maintainer @ValeryLitvin
 
 On repo project folder type:
 ```
