@@ -45,14 +45,10 @@ Warning: some tests may not pass because balances was changed
 ~ » npm test
 ```
 ## Next Milestone
-- Split to two versions: CLI-based and NPM-package
 - Add BitShares
-- Add Stellar
-- Add other cyber•rated systems from CryptoID
-- Fix tests (add addresses with static balances)
+- Add other cyber•rated systems from CryptoIDnces)
 - Refactoring and optimization
 - Rebuild regular expressions for addresses
-- Add build (with TravisCI), npm package (with badge.fury.io) and code climate (with codeclimate.org)
 
 ## License
 
