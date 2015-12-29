@@ -18,7 +18,6 @@ counterparty = (addr) ->
         else
           throw new InvalidResponseError service: url, response: resp
     .map (data) ->
-      console.log data
       status: "success"
       service: url
       address: addr

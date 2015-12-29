@@ -12,7 +12,6 @@ module.exports =
   # Example 16WhhnUUCZVvszFxsaCG3d6v77Qin1LErQ
   counterparty: (addr) ->
     RegExp('^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$').test(addr)
-  # mastercoin: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
 
  # Ethereum account address starts with 0x
  # Example 0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae
@@ -39,7 +38,6 @@ module.exports =
   # Example NXT-4VDY-LNVT-LMAY-FMCKA
   nxtcurrencies: (addr) ->
     RegExp('^(NXT|nxt)(-[a-zA-Z0-9]{1,5})+$').test(addr)
-  # coloredcoins: new RegExp('^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$')
 
   # Currently two networks are defined: the test network whose account
   # addresses start with a capital T and the main network whose account

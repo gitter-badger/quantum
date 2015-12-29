@@ -42,7 +42,6 @@
   "devDependencies": {
     "coffee-script": "^1.7.1",
     "chai": "^2.0.0",
-    "replay": "^2.0.3",
     "mocha": "^2.3.4"
   }
 }

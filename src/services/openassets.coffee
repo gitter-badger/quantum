@@ -7,7 +7,7 @@ oa = (addr) ->
   url = "https://api.coinprism.com/v1/addresses/#{addr}"
 
   req(url, json: true)
-    .timeout(2000)
+    .timeout(3000)
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299] and json.address == addr and _.isArray(json.assets)
