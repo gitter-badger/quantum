@@ -16,7 +16,6 @@ chain_so = (addr) ->
     .cancellable()
     .spread (resp, json) ->
       if resp.statusCode in [200..299]
-        console.log json
         status: "success"
         service: url
         address: json.data.address
