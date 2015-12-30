@@ -4,7 +4,7 @@ _ = require("lodash")
 InvalidResponseError = require("../errors").InvalidResponseError
 
 nxt = (addr) ->
-  url = "http://nxt.cyber.fund:7876/nxt?requestType=getBalance&account=#{addr}"
+  url = "http://node.cyber.fund:7876/nxt?requestType=getBalance&account=#{addr}"
 
   req(url, json: true)
     .timeout(1000)

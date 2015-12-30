@@ -1,5 +1,5 @@
 {
-  "name": "crypto-balance",
+  "name": "quantum",
   "description": "Query various crypto tokens for their address balances",
   "keywords": [
     "crypto",
@@ -15,10 +15,16 @@
     "counterparty",
     "xcp",
     "dogeparty",
-    "xdp"
+    "xdp",
+    "openassets",
+    "ethereum",
+    "altcoin",
+    "ripple",
+    "nxt",
+    "nem"
   ],
-  "version": "0.0.20",
-  "author": "Lars Kluge <l@larskluge.com>",
+  "version": "0.3.4",
+  "author": "Valery Litvin <litvin.besson@gmail.com>",
   "main": "lib/crypto-balance.js",
   "bin": {
     "balance": "bin/balance.js"
@@ -29,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/larskluge/crypto-balance"
+    "url": "https://github.com/cyberFund/quantum"
   },
   "dependencies": {
     "big.js": "^3.1.3",

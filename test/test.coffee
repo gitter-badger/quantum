@@ -75,9 +75,9 @@ describe "Balance", ->
       expect(nem.quantity).to.be.not.empty
       done()
 
- # it "has a NQT balance", (done) ->
- #    balance("NXT-8MVA-XCVR-3JC9-2C7C3").then (result) ->
- #      nxt = _.find(result, (item) -> item.asset == "NQT")
- #      expect(nxt).to.exist
- #      expect(nxt.quantity).to.be.not.empty
- #      done()
+ it "has a NQT balance", (done) ->
+    balance("NXT-8MVA-XCVR-3JC9-2C7C3").then (result) ->
+      nxt = _.find(result, (item) -> item.asset == "NQT")
+      expect(nxt).to.exist
+      expect(nxt.quantity).to.be.not.empty
+      done()

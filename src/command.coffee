@@ -13,7 +13,7 @@ module.exports.run = ->
     .then (items) ->
       for item in items
         if item.status == 'success' && item.quantity != undefined
-          console.log "#{numeral(item.quantity).format("0,0.00000000")} #{item.asset}"
+          console.log "#{item.quantity} #{item.asset}"
         else
           console.error _.merge(item, raw: "[object]")
       process.exit 0
