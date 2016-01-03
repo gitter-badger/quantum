@@ -1,5 +1,7 @@
 # Quantum
 
+[![Join the chat at https://gitter.im/cyberFund/quantum](https://badges.gitter.im/cyberFund/quantum.svg)](https://gitter.im/cyberFund/quantum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Query various crypto tokens for their address balances. Script automaticaly recognize a protocol by address and return balance of tokens associated with it. Token names are resolved using Chaingear.
 
 Maintainer @ValeryLitvin
